@@ -8,15 +8,20 @@ from Utils.TimeLogger import log
 if args.data == 'yelp':
 	predir = 'Datasets/Yelp/'
 	behs = ['tip', 'neg', 'neutral', 'pos']
+elif args.data == 'lkx':
+	predir = 'Datasets/lkx/'
+	behs = ['offered', 'offer withdrawn', 'bid', 'sold']
 elif args.data == 'ml10m':
 	predir = 'Datasets/MultiInt-ML10M/'
 	behs = ['neg', 'neutral', 'pos']
 elif args.data == 'retail':
-	elif args.target == 'buy':
+	if args.target == 'buy':
 		predir = 'Datasets/retail/'
-	behs = ['pv', 'fav', 'cart', 'buy']
-trnfile = predir + 'trn_'
-tstfile = predir + 'tst_'
+		behs = ['pv', 'fav', 'cart', 'buy']
+# trnfile = predir + 'trn_'
+trnfile = predir
+# tstfile = predir + 'tst_'
+tstfile = predir
 
 
 def helpInit(a, b, c):
@@ -73,10 +78,11 @@ def LoadData():
 		with open(path, 'rb') as fs:
 			mat = pickle.load(fs)
 		trnMats.append(mat)
-		if args.target == 'click':
+		if args.target == 'bid':
 			trnLabel = (mat if i==0 else 1 * (trnLabel + mat != 0))
-		elif args.target == 'buy' and i == len(behs) - 1:
+		elif args.target == 'sold' and i == len(behs) - 1:
 			trnLabel = 1 * (mat != 0)
+
 	trnMats, maxTime = timeProcess(trnMats)
 	# test set
 	path = tstfile + 'int'
