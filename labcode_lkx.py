@@ -14,7 +14,7 @@ class Recommender:
 		self.sess = sess
 		self.trnMats, self.iiMats, self.tstInt, self.label, self.tstUsrs, args.intTypes, self.maxTime = datas
 
-		args.user, args.item = self.trnMats[0].shape
+		args.user, args.item = self.trnMats[3].shape
 		print('USER', args.user, 'ITEM', args.item)
 		self.metrics = dict()
 		mets = ['Loss', 'preLoss', 'HR', 'NDCG']
