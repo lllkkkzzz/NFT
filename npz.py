@@ -15,6 +15,5 @@ def load_npz_file(file_path):
             print(array)
             print()
 
-# 调用函数读取文件
 file_path = 'Datasets/Yelp/offered.npz'  #
 load_npz_file(file_path)
