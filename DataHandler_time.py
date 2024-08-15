@@ -10,7 +10,7 @@ if args.data == 'yelp':
 	behs = ['tip', 'neg', 'neutral', 'pos']
 elif args.data == 'lkx':
 	predir = 'Datasets/lkx/'
-	behs = ['offered', 'offer withdrawn', 'bid', 'sold']
+	behs = ['bid withdrawn','offered', 'bid', 'sold']
 elif args.data == 'ml10m':
 	predir = 'Datasets/MultiInt-ML10M/'
 	behs = ['neg', 'neutral', 'pos']
