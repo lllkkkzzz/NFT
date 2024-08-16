@@ -23,7 +23,7 @@ def parse_args():
 	parser.add_argument('--mult', default=1, type=float, help='multiplier for the result')
 	parser.add_argument('--keepRate', default=0.7, type=float, help='rate for dropout')
 	parser.add_argument('--iiweight', default=0.3, type=float, help='weight for ii')
-	parser.add_argument('--slot', default=5, type=int, help='length of time slots')
+	parser.add_argument('--slot', default=1, type=int, help='length of time slots')
 	parser.add_argument('--graphSampleN', default=25000, type=int, help='use 25000 for training and 200000 for testing, empirically')
 	parser.add_argument('--divSize', default=50, type=int, help='div size for smallTestEpoch')
 	return parser.parse_args()
@@ -36,6 +36,8 @@ args = parse_args()
 # yelp
 # args.user = 19800
 # args.item = 22734
-
+# NFT
+# args.user = 6416
+# args.item = 6810
 
 args.decay_step = args.trnNum//args.batch
